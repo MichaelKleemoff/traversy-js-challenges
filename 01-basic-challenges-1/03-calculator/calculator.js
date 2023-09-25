@@ -14,7 +14,7 @@ function calculator(num1, num2, operator) {
 			result = num1 / num2;
 			break;
 		default:
-			console.log('Please enter a valid operator.');
+			throw new Error('Please enter a valid operator.');
 	}
 	return result;
 }
