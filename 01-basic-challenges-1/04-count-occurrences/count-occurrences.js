@@ -5,6 +5,4 @@ function countOccurrences(str, char) {
 		.filter((letter) => letter === char).length;
 }
 
-console.log(countOccurrences('chOoOOookie', 'o'));
-
 module.exports = countOccurrences;
