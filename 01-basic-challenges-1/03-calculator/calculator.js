@@ -1,5 +1,6 @@
 function calculator(num1, num2, operator) {
 	let result;
+
 	switch (operator) {
 		case '+':
 			result = num1 + num2;
@@ -16,6 +17,7 @@ function calculator(num1, num2, operator) {
 		default:
 			throw new Error('Please enter a valid operator.');
 	}
+
 	return result;
 }
 
