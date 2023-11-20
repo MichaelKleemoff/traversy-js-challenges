@@ -28,8 +28,8 @@ isPalindrome('') // true
 
 ### Constraints
 
-- The input string will only contain lowercase letters and spaces
-- The function should ignore spaces when checking if the string is a palindrome
+- The function should ignore spaces, special characters and anything non-alphanumeric when checking if the string is a palindrome
+- The function should test case-insensitive strings
 
 ### Hints
 
@@ -45,9 +45,9 @@ Using `replace` with a regular expression is the easiest way to solve this chall
 
 ```js
 function isPalindrome(str) {
-  const formattedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
-  const reversedStr = formattedStr.split('').reverse().join('');
-  return formattedStr === reversedStr;
+	const formattedStr = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+	const reversedStr = formattedStr.split('').reverse().join('');
+	return formattedStr === reversedStr;
 }
 ```
 
@@ -68,36 +68,36 @@ If you do not want to use a regular expression to strip out non-alphanumeric cha
 
 ```js
 function isPalindrome(str) {
-  const formattedStr = removeNonAlphanumeric(str.toLowerCase());
-  const reversedStr = reverseString(formattedStr);
-  return formattedStr === reversedStr;
+	const formattedStr = removeNonAlphanumeric(str.toLowerCase());
+	const reversedStr = reverseString(formattedStr);
+	return formattedStr === reversedStr;
 }
 
 function removeNonAlphanumeric(str) {
-  let formattedStr = '';
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
-    if (isAlphaNumeric(char)) {
-      formattedStr += char;
-    }
-  }
-  return formattedStr;
+	let formattedStr = '';
+	for (let i = 0; i < str.length; i++) {
+		const char = str[i];
+		if (isAlphaNumeric(char)) {
+			formattedStr += char;
+		}
+	}
+	return formattedStr;
 }
 
 function isAlphaNumeric(char) {
-  const code = char.charCodeAt(0);
-  return (
-    (code >= 48 && code <= 57) || // Numbers 0-9
-    (code >= 97 && code <= 122) // Lowercase letters a-z
-  );
+	const code = char.charCodeAt(0);
+	return (
+		(code >= 48 && code <= 57) || // Numbers 0-9
+		(code >= 97 && code <= 122) // Lowercase letters a-z
+	);
 }
 
 function reverseString(str) {
-  let reversed = '';
-  for (let i = str.length - 1; i >= 0; i--) {
-    reversed += str[i];
-  }
-  return reversed;
+	let reversed = '';
+	for (let i = str.length - 1; i >= 0; i--) {
+		reversed += str[i];
+	}
+	return reversed;
 }
 ```
 
@@ -117,9 +117,9 @@ This solution is a bit tougher.
 
 ```js
 test('Checking for palindrome strings', () => {
-  expect(isPalindrome('racecar')).toBe(true);
-  expect(isPalindrome('Hello')).toBe(false);
-  expect(isPalindrome('A man, a plan, a canal, Panama')).toBe(true);
-  expect(isPalindrome('12321')).toBe(true);
+	expect(isPalindrome('racecar')).toBe(true);
+	expect(isPalindrome('Hello')).toBe(false);
+	expect(isPalindrome('A man, a plan, a canal, Panama')).toBe(true);
+	expect(isPalindrome('12321')).toBe(true);
 });
 ```
