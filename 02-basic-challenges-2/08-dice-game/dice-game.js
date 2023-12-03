@@ -1,6 +1,6 @@
 function diceGameSimulation(numSimulations) {
 	const simulations = [];
-	const roll = () => Math.floor(Math.random() * 6 + 1);
+	const roll = () => Math.floor(Math.random() * 6) + 1;
 
 	const simulation = () => {
 		const game = {
